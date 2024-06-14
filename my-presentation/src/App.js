@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Slide from './components/Slide';
 import FamilySlide from './components/FamilySlide';
+import FamilySlide2 from './components/FamilySlide2';
 import Map from './components/Map';
 import Graph from './components/Graph'; // Correct import statement
 import MekkoChart from './components/MekkoChart'; // Correct import statement
@@ -9,7 +10,7 @@ import { fetchData } from './dataLoader';
 import './App.css';
 
 const slides = [
-  { title: "Welcome", text: "This is the first slide" },
+  { title: "Welcome", text: "Kristiaan Koppes" },
   { title: "Family", text: "Meet my family" },
 ];
 
@@ -43,17 +44,19 @@ function App() {
   const renderContent = () => {
     switch (step) {
       case 0:
-        return slidesData.length > 0 && <Slide content={slides[0]} image="images/image_1.webp" />;
+        return slidesData.length > 0 && <Slide content={slides[0]} image="images/front-image.jpg" />;
       case 1:
         return <FamilySlide />;
       case 2:
         return <Map />;
       case 3:
-        return graph.nodes.length > 0 && <Graph graph={graph} />;
+          return <FamilySlide2 />;
       case 4:
+        return graph.nodes.length > 0 && <Graph graph={graph} />;
+      case 5:
         return mekkoData.length > 0 && <MekkoChart data={mekkoData} />;
       default:
-        return <div><img src="/images/your-gif.gif" alt="Conclusion" /></div>;
+        return <div><img src="/images/starry_sky.gif" alt="Conclusion" /></div>;
     }
   };
 
