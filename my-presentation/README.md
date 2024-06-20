@@ -21,3 +21,6 @@ pm start\ to start the application
 - \Map.js\: Component for the map of Europe
 - \Graph.js\: Component for the interactive graph
 - \MekkoChart.js\: Component for the Mekko chart
+
+
+Run: $env:NODE_OPTIONS="--openssl-legacy-provider"; npm start

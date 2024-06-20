@@ -11,11 +11,11 @@ const GraphComponent = ({ graph }) => {
     edges: {
       color: "#000000"
     },
-    height: "500px"
+    height: "1000px"
   };
 
   return (
-    <div style={{ height: '100vh', width: '100%' }}>
+    <div style={{ height: '100%', width: '100%' }}>
       <Graph
         graph={graph}
         options={options}

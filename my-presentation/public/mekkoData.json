@@ -1,5 +1,8 @@
 ﻿[
-  { "name": "Category 1", "value": 50 },
-  { "name": "Category 2", "value": 30 },
-  { "name": "Category 3", "value": 20 }
+  { "name": "Position (between eng, im, governance)", "value": 50 },
+  { "name": "Broad experience", "value": 30 },
+  { "name": "Expertise on the technical side", "value": 30 },
+  { "name": "Broad network within Aerostructures and ops", "value": 30 },
+  { "name": "Drive for Innovation", "value": 30 },
+  { "name": "Knowledge sharing", "value": 20 }
 ]
