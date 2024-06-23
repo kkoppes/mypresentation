@@ -85,7 +85,7 @@ def main(image_path, gamma, eps, min_samples):
 
     # Create a DataFrame with the coordinates of the combined points
     combined_points_df_corrected = pd.DataFrame(combined_points_corrected, columns=['Y', 'X'])
-    import ace_tools as tools; tools.display_dataframe_to_user(name="Combined Points Coordinates", dataframe=combined_points_df_corrected)
+    #import ace_tools as tools; tools.display_dataframe_to_user(name="Combined Points Coordinates", dataframe=combined_points_df_corrected)
 
     combined_points_df_corrected.head()
 
