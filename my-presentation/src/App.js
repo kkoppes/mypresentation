@@ -31,7 +31,7 @@ function App() {
       // Fetch data from JSON files
       const slidesData = await fetchData('/slides.json');
       const locationsData = await fetchData('/locations.json');
-      const graphData = await fetchData('/graph.json');
+      const graphData = await fetchData('/graph2.json');
       const mekkoData = await fetchData('/mekkoData.json');
 
       // Set the fetched data into state
@@ -46,7 +46,7 @@ function App() {
 
   // Function to handle moving to the next step in the slideshow
   const handleNext = () => {
-    setStep(prev => (prev < 5 ? prev + 1 : 0)); // Loop back to the beginning after the last slide
+    setStep(prev => (prev < 6 ? prev + 1 : 0)); // Loop back to the beginning after the last slide
   };
 
   // Function to render content based on the current step
@@ -64,7 +64,7 @@ function App() {
         return graph.nodes.length > 0 && <Graph graph={graph} />;
       case 5:
         return mekkoData.length > 0 && <MekkoChart data={mekkoData} />;
-      default:
+      case 6:
         return <div><img src="/images/starry_sky.gif" alt="Conclusion" /></div>; // Default case for any undefined step
     }
   };
