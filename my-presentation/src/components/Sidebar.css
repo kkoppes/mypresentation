@@ -1,0 +1,86 @@
+/* src/components/Sidebar.css */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .sidebar.closed {
+    transform: translateX(-250px);
+  }
+  
+  .sidebar .toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: -25px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    cursor: pointer;
+  }
+  
+  .sidebar .toggle-btn.open {
+    border-left: 15px solid #2c3e50;
+  }
+  
+  .sidebar .toggle-btn.closed {
+    border-right: 15px solid #2c3e50;
+  }
+  
+  .sidebar-content {
+    padding: 20px;
+  }
+  
+  .sidebar-content label {
+    display: block;
+    margin-bottom: 10px;
+    color: #ecf0f1;
+  }
+  
+  .sidebar-content input {
+    padding: 5px;
+    margin-top: 5px;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+  }
+  
+  .add-attribute {
+    margin-top: 20px;
+  }
+  
+  .add-attribute h3 {
+    color: #ecf0f1;
+  }
+  
+  .add-attribute label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .add-attribute input {
+    padding: 5px;
+    margin-top: 5px;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+  }
+  
+  .add-attribute button {
+    padding: 5px 10px;
+    margin-top: 10px;
+    background-color: #3498db;
+    color: #ecf0f1;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  

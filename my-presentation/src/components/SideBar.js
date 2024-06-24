@@ -1,44 +1,77 @@
 // src/components/Sidebar.js
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useGraph } from '../contexts/GraphContext';
+import './Sidebar.css';
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const { selectedNode, handleApply, addAttribute } = useGraph();
+  const [nodeData, setNodeData] = useState({});
+  const [newAttribute, setNewAttribute] = useState('');
+  const [newValue, setNewValue] = useState('');
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
+  useEffect(() => {
+    if (selectedNode) {
+      setNodeData(selectedNode);
+    }
+  }, [selectedNode]);
+
+  const handleChange = (key, value) => {
+    setNodeData((prevState) => ({
+      ...prevState,
+      [key]: value,
+    }));
+  };
+
+  const handleApplyClick = () => {
+    handleApply(nodeData);
+  };
+
+  const handleAddAttribute = () => {
+    if (newAttribute && newValue) {
+      addAttribute(newAttribute, newValue);
+      setNewAttribute('');
+      setNewValue('');
+    }
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <button onClick={toggleSidebar} style={{ marginBottom: '10px' }}>
-        {isOpen ? 'Hide Menu' : 'Show Menu'}
-      </button>
-      {isOpen && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          <div>
+    <div className={`sidebar ${selectedNode ? 'open' : 'closed'}`}>
+      <div className={`toggle-btn ${selectedNode ? 'open' : 'closed'}`}></div>
+      {selectedNode && (
+        <div className="sidebar-content">
+          {Object.keys(nodeData).map((key) => (
+            <div key={key}>
+              <label>
+                {key}:
+                <input
+                  type="text"
+                  value={nodeData[key]}
+                  onChange={(e) => handleChange(key, e.target.value)}
+                />
+              </label>
+            </div>
+          ))}
+          <button onClick={handleApplyClick}>Apply</button>
+          <div className="add-attribute">
+            <h3>Add Attribute</h3>
             <label>
-              Field 1:
-              <input type="text" placeholder="Placeholder Field 1" />
+              Attribute:
+              <input
+                type="text"
+                value={newAttribute}
+                onChange={(e) => setNewAttribute(e.target.value)}
+              />
             </label>
-          </div>
-          <div>
             <label>
-              Field 2:
-              <input type="text" placeholder="Placeholder Field 2" />
+              Value:
+              <input
+                type="text"
+                value={newValue}
+                onChange={(e) => setNewValue(e.target.value)}
+              />
             </label>
-          </div>
-          <div>
-            <label>
-              Field 3:
-              <input type="text" placeholder="Placeholder Field 3" />
-            </label>
-          </div>
-          <div>
-            <label>
-              Field 4:
-              <input type="text" placeholder="Placeholder Field 4" />
-            </label>
+            <button onClick={handleAddAttribute}>Add</button>
           </div>
         </div>
       )}

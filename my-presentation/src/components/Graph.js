@@ -1,33 +1,36 @@
 ﻿// src/components/Graph.js
 
-// Importing necessary modules and components
 import React from 'react';
 import Graph from 'react-graph-vis';
-import { fetchData } from '../dataLoader';
+import { useGraph } from '../contexts/GraphContext';
 
-// Define the GraphComponent that receives a `graph` prop
-const GraphComponent = ({ graph }) => {
-  // Define options for the graph visualization
+const GraphComponent = () => {
+  const { graph, handleNodeClick } = useGraph();
+
   const options = {
     layout: {
-      hierarchical: false // Disable hierarchical layout
+      hierarchical: false,
     },
     edges: {
-      color: "#000000" // Set edge color to black
+      color: '#000000',
     },
-    height: "100%" // Set the height of the graph visualization
+    height: '100%',
   };
 
-  // Return the JSX to render the graph visualization
+  const events = {
+    select: ({ nodes }) => {
+      if (nodes.length > 0) {
+        const selectedNode = graph.nodes.find((node) => node.id === nodes[0]);
+        handleNodeClick(selectedNode);
+      }
+    },
+  };
+
   return (
     <div style={{ height: '100%', width: '100%' }}>
-      <Graph
-        graph={graph} // Pass the graph data as a prop
-        options={options} // Pass the visualization options as a prop
-      />
+      <Graph graph={graph} options={options} events={events} />
     </div>
   );
 };
 
-// Export the GraphComponent as the default export
 export default GraphComponent;

@@ -1,8 +1,8 @@
 ﻿[
-  { "name": "Position (between eng, im, governance)", "value": 50 },
-  { "name": "Broad experience", "value": 30 },
-  { "name": "Expertise on the technical side", "value": 30 },
-  { "name": "Broad network within Aerostructures and ops", "value": 30 },
-  { "name": "Drive for Innovation", "value": 30 },
-  { "name": "Knowledge sharing", "value": 20 }
+  { "name": "Position (between eng, im, governance)", "value": 40 },
+  { "name": "Broad experience", "value": 35 },
+  { "name": "Expertise on the technical side", "value": 35 },
+  { "name": "Broad network within Aerostructures and ops", "value": 40 },
+  { "name": "Drive for Innovation", "value": 35 },
+  { "name": "Knowledge sharing", "value": 25 }
 ]

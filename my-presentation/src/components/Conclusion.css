@@ -1,0 +1,16 @@
+/* src/components/Conclusion.css */
+
+.conclusion-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #000; /* Optional: background color */
+  }
+  
+  .conclusion-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
